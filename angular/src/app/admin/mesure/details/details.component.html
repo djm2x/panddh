@@ -1,0 +1,52 @@
+<div class="dialog">
+  <h1 mat-dialog-title>
+    <mat-toolbar role="toolbar" class="task-header">
+      <span>
+        المخطط التنفيدي الترابي
+      </span>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+  </h1>
+  <div class="content">
+    <div mat-dialog-content>
+
+      <div class="row mb-3" style="text-align: right; ">
+        <div class="col-md-2">المرحلة : {{o.cycle.label}} </div>
+        <div class="col-md-2">هيئة : {{o.responsable.organisme.label}} </div>
+        <div class="col-md-2">التدبير : {{o.nom}} </div>
+        <div class="col-md-2">المسؤول الرئيسي : {{o.responsable.nom}} </div>
+        <div class="col-md-4">النتائج المنتظرة : {{o.resultatsAttendu}} </div>
+      </div>
+
+      <mat-divider>
+      </mat-divider>
+
+      <div class="row mt-3" style="text-align: right; ">
+        <div class="col-md-4">
+          <p>الشركاء</p>
+          <mat-list>
+            <mat-list-item *ngFor="let e of partenaires; let i=index" >- {{e.label}}</mat-list-item>
+          </mat-list>
+        </div>
+        <div class="col-md-4">
+          <p>الأنشطة المبرمجة</p>
+          <mat-list>
+            <mat-list-item *ngFor="let e of activites; let i=index" >- {{e.nom}}</mat-list-item>
+          </mat-list>
+        </div>
+        <div class="col-md-4">
+          <p>المؤشرات</p>
+          <mat-list>
+            <mat-list-item *ngFor="let e of indicateurs; let i=index" >- {{e.nom}}</mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="actions" mat-dialog-actions>
+      <button mat-button (click)="onNoClick()" type="button">رجوع</button>
+    </div>
+  </div>
+</div>

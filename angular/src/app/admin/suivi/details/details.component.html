@@ -1,0 +1,35 @@
+<div class="dialog">
+  <h1 mat-dialog-title>
+    <mat-toolbar role="toolbar" class="task-header">
+      <span>
+        {{o.nom}}
+      </span>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+  </h1>
+  <div class="content">
+    <div mat-dialog-content>
+
+      <div class="row mb-3" style="text-align: right; ">
+        <div class="col-md-12">التدبير : {{o.activite.mesure.nom}} </div>
+        <div class="col-md-12">النشاط : {{o.activite.nom}} </div>
+        <div class="col-md-12">الإنجاز : {{o.nom}} </div>
+        <div class="col-md-12">وضعية التنفيد : {{o.situation}} </div>
+        <div class="col-md-12">السنة : {{o.annee}} </div>
+        <div class="col-md-12">معدل الإنجاز : {{o.taux}} </div>
+        <div class="col-md-12">التأثير : {{o.effet}} </div>
+      </div>
+
+      <mat-divider>
+      </mat-divider>
+
+
+
+    </div>
+
+
+    <div class="actions" mat-dialog-actions>
+      <button mat-button (click)="onNoClick()" type="button">رجوع</button>
+    </div>
+  </div>
+</div>

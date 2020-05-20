@@ -1,0 +1,35 @@
+mat-card {
+  margin: 0 15px;
+  // display: flex;
+  // flex-direction: column;
+
+    mat-form-field {
+      width: 100%;
+    }
+}
+
+.actions {
+  display: flex;
+  // align-content: flex-end;
+  flex-direction: row-reverse;
+  margin: 0 15px 15px 0;
+}
+
+.host {
+  margin: 1em !important;
+}
+
+.inputs {
+  display: flex !important;
+  // flex-wrap: wrap;
+  // flex-direction: column;
+  mat-form-field {
+    margin-left: 10px;
+  }
+}
+
+
+::ng-deep .mat-tab-body-content {
+  height: calc(100vh - 210px) !important;
+  overflow: auto;
+}

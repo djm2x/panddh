@@ -1,0 +1,41 @@
+<mat-card>
+
+
+  <div class="inputs2">
+    <mat-form-field>
+      <mat-label>المرحلة</mat-label>
+      <mat-select (selectionChange)="selectChange($event.value, 'cycle')">
+        <mat-option *ngFor="let e of cycles | async" [value]="e.id">{{ e.label }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field>
+      <mat-label>التدبير</mat-label>
+      <mat-select #m (selectionChange)="selectChange($event.value, 'mesure')">
+        <mat-option value="0">...</mat-option>
+        <mat-option *ngFor="let e of mesures" [value]="e.id">{{ e.nom }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field>
+      <mat-label>المؤشرات</mat-label>
+      <mat-select (selectionChange)="selectChange($event.value, 'indicateur', m.value)">
+        <mat-option value="0">...</mat-option>
+        <mat-option *ngFor="let e of indicateurs" [value]="e.id">{{ e.nom }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div style="display: block;">
+    <canvas baseChart
+      [datasets]="barChartData"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [colors]="barChartColors"
+      [legend]="barChartLegend"
+      [labels]="barChartLabels"
+      [chartType]="barChartType">
+    </canvas>
+  </div>
+
+  </mat-card>

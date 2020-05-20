@@ -1,0 +1,23 @@
+<div class="" style="margin-bottom: 15px;">
+  <!-- <input hidden #imgInput type="file" accept="image/*" (change)="handleFileInput($event.target.files)"> -->
+  <input hidden style="display: none;"
+    accept="application/pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    #file type="file" multiple (change)="upload(file.files)">
+  <button mat-raised-button type="button" (click)="openInput(file)">
+    Pièce jointe
+  </button>
+
+  <!-- <button mat-raised-button color="warn" type="button" (click)="remove()">
+      Supprimer le rapport
+    </button> -->
+  <div class="myrow">
+    <div *ngFor="let f of pieceJointeToShow">
+      <h6>
+        - {{f}}
+        <button mat-icon-button color="warn" (click)="remove(f)" type="button">
+          <mat-icon>delete_sweep</mat-icon>
+        </button>
+      </h6>
+    </div>
+  </div>
+</div>

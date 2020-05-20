@@ -1,0 +1,46 @@
+<div class="dialog">
+  <h1 mat-dialog-title>
+    <mat-toolbar role="toolbar" class="task-header">
+      <span>{{title}}</span>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+  </h1>
+  <div class="content">
+    <div mat-dialog-content>
+
+      <form [formGroup]="myForm">
+
+        <!-- <mat-form-field appearance="fill">
+          <mat-label>الدور</mat-label>
+          <mat-select formControlName="idProfil">
+            <mat-option *ngFor="let e of profils | async" [value]="e.id">{{ e.label }}</mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="fill">
+          <mat-label>صفحة</mat-label>
+          <!-- (selectionChange)="selectChange($event)" -->
+          <mat-select formControlName="routeScreen">
+            <mat-option *ngFor="let e of uow.routeScreens" [value]="e.nameF">{{ e.nameF }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+          <mat-label>الإجراء المسموح به</mat-label>
+          <mat-select formControlName="action">
+            <mat-option *ngFor="let e of actions" [value]="e">{{ e }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        
+
+      </form>
+    </div>
+
+    <div class="actions" mat-dialog-actions>
+      <button mat-raised-button (click)="onNoClick()" type="button">إلغاء</button>&nbsp;&nbsp;
+      <button mat-raised-button cdkFocusInitial color="primary" (click)="onOkClick(myForm.value)"
+        [disabled]="myForm.invalid">تسجيل</button>
+    </div>
+  </div>
+</div>

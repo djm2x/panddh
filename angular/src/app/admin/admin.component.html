@@ -1,0 +1,166 @@
+<!-- <app-header [userName]="currentUser"></app-header> -->
+<!-- <app-menu></app-menu>
+<div class="content-wrapper">
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer> -->
+
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <mat-toolbar-row>
+    <button mat-button (click)="snav.toggle()" routerLinkActive="active">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <p>نظام معلومياتي لتتبع المخطط التنفيدي لخطة العمل الوطنية في مجال الديمقراطية وحقوق الإنسان</p>
+    <span class="example-spacer"></span>
+    <!-- <p>role : {{session.getUser.profil.label}}</p> -->
+
+  <!-- <p>&nbsp;||&nbsp;organisme : {{session.getUser.organisme.label}}</p> -->
+    <button mat-button [matMenuTriggerFor]="beforeMenu">{{session.getUser.nom}} {{session.getUser.prenom}}, مرحبا بكم</button>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item [routerLink]="['/admin/compte']">معلومات الحساب</button>
+      <button mat-menu-item (click)="disconnect()">خروج</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+<!-- <button mat-button (click)="snav.toggle()" routerLinkActive="active">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <p>Système de suivi des recommandations</p>
+  <span class="example-spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="beforeMenu">{{session.getUser.nom}}</button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item *ngIf="session.checkPermission('mesure')" [routerLink]="['/admin/compte']">Compte</button>
+    <button mat-menu-item (click)="disconnect()">Déconnecter</button>
+  </mat-menu> -->
+
+<mat-sidenav-container #sidenav class="example-sidenav-container" style=" z-index: 9; background-color: rgb(235, 235, 235);">
+  <mat-sidenav #snav [mode]="(!mobileQuery.matches) ? 'side' : 'over'" [opened]="opened && !mobileQuery.matches"
+    [fixedInViewport]="true" fixedTopGap="50" position="start">
+    <mat-nav-list class="list" style="width: 220px; padding: 0;">
+      <div class="logo">
+        <img src="../assets/logo-ddh.jpg" alt="marit logo" width="210">
+      </div>
+      <mat-divider></mat-divider>
+      <mat-list-item [routerLink]="['/admin/home']" routerLinkActive="router-link-active">
+        <mat-icon>home</mat-icon>&nbsp;<span>الإستقبال</span>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item  *ngIf="session.checkPermission('mesure-executif')" [routerLink]="['/admin/mesure-executif']" routerLinkActive="router-link-active">
+        <mat-icon>assignment</mat-icon>&nbsp;<span>المخطط التنفيدي</span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <mat-list-item *ngIf="session.checkPermission('mesure-region')" [routerLink]="['/admin/mesure-region']" routerLinkActive="router-link-active">
+        <mat-icon>assignment</mat-icon>&nbsp;<span>المخطط التنفيدي الترابي</span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <mat-list-item *ngIf="session.checkPermission('mesure-programme')" [routerLink]="['/admin/mesure-programme']" routerLinkActive="router-link-active">
+        <mat-icon>assignment</mat-icon>&nbsp;<span>برامج العمل</span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <mat-list-item *ngIf="session.checkPermission('suivi')" [routerLink]="['/admin/suivi']" routerLinkActive="router-link-active">
+        <mat-icon>assessment</mat-icon>&nbsp;<span>التتبع</span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <mat-list-item *ngIf="session.checkPermission('suivi-indicateur')" [routerLink]="['/admin/suivi-indicateur']" routerLinkActive="router-link-active">
+        <mat-icon>assessment</mat-icon>&nbsp;<span> تتبع المؤشرات</span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <mat-list-item *ngIf="session.checkPermission('rapport-litteraire')" [routerLink]="['/admin/rapport-litteraire']" routerLinkActive="router-link-active">
+        <mat-icon>assignment</mat-icon>&nbsp;<span>تقرير الحصيلة الأدبي</span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <mat-list-item *ngIf="session.checkPermission('rapport-qualitative')" [routerLink]="['/admin/rapport-qualitative']" routerLinkActive="router-link-active">
+        <mat-icon>assignment</mat-icon>&nbsp;<span>تقرير الحصيلة النوعي</span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <mat-list-item *ngIf="session.checkPermission('commission')" [routerLink]="['/admin/commission']" routerLinkActive="router-link-active">
+        <mat-icon>assignment</mat-icon>&nbsp;<span>الجنة</span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <mat-accordion>
+        <!-- <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    rb1
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+            </mat-expansion-panel> -->
+
+
+        <mat-expansion-panel *ngIf="session.isAdmin" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <!-- ali3dadat -->
+              التعديل
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list-item *ngIf="session.checkPermission('organisme')" [routerLink]="['/admin/organisme']" routerLinkActive="router-link-active">
+            <mat-icon>account_balance</mat-icon>&nbsp;<span>المنظمات</span>
+          </mat-list-item>
+          <mat-list-item *ngIf="session.checkPermission('nature')" [routerLink]="['/admin/nature']" routerLinkActive="router-link-active">
+            <mat-icon>aspect_ratio</mat-icon>&nbsp;<span>نوع التدبير</span>
+          </mat-list-item>
+          <!-- <mat-list-item *ngIf="session.checkPermission('mesure')" [routerLink]="['/admin/objectif']" routerLinkActive="router-link-active">
+            <mat-icon>done_all</mat-icon>&nbsp;<span>الأهداف</span>
+          </mat-list-item> -->
+          <mat-list-item *ngIf="session.checkPermission('indicateur')" [routerLink]="['/admin/indicateur']" routerLinkActive="router-link-active">
+            <mat-icon>play_for_work</mat-icon>&nbsp;<span>المؤشرات</span>
+          </mat-list-item>
+          <mat-list-item *ngIf="session.checkPermission('axe')" [routerLink]="['/admin/axe']" routerLinkActive="router-link-active">
+            <mat-icon>call_made</mat-icon>&nbsp;<span>المحاور</span>
+          </mat-list-item>
+          <mat-list-item *ngIf="session.checkPermission('sous-axe')" [routerLink]="['/admin/sous-axe']" routerLinkActive="router-link-active">
+            <mat-icon>call_missed_outgoing</mat-icon>&nbsp;<span>المحاور الفرعية</span>
+          </mat-list-item>
+        </mat-expansion-panel>
+        <mat-expansion-panel *ngIf="session.isAdmin" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              الحماية
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list-item *ngIf="session.checkPermission('user')" [routerLink]="['/admin/user']" routerLinkActive="router-link-active">
+            <mat-icon>group</mat-icon>&nbsp;<span>المستخدمين</span>
+          </mat-list-item>
+         
+          <mat-list-item *ngIf="session.checkPermission('profil')" [routerLink]="['/admin/profil']" routerLinkActive="router-link-active">
+            <mat-icon>control_point_duplicate</mat-icon>&nbsp;<span>الوظيفة</span>
+          </mat-list-item>
+
+           <mat-list-item *ngIf="session.checkPermission('permission')" [routerLink]="['/admin/permission']" routerLinkActive="router-link-active">
+            <mat-icon>how_to_reg</mat-icon>&nbsp;<span>صلاحيات المستخدم</span>
+          </mat-list-item>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-divider></mat-divider>
+
+
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+
+    <!-- <div style="margin: 65px auto 15px;" class="mybreadcrumb">
+        <div *ngFor="let s of patchRoute" class="items">
+          <a *ngIf="session.checkPermission('mesure')" [routerLink]="['/home/connection']">{{ s !== '-1' ? s : 'nauveau'}}</a><mat-icon>navigate_next</mat-icon>
+        </div>
+      </div> -->
+    <main [@routerTransition]="getState(o)" style="margin: 65px 0 0 5px;">
+      <router-outlet #o="outlet"></router-outlet>
+    </main>
+
+    <!-- <footer>
+        <mat-toolbar class="mt-2 text" color="primary">
+          <mat-toolbar-row style="height: 70px">
+            <span style="margin-left: auto; margin-right: auto;"> © {{ d | date:"dd/MMMM/yyyy" }} - Yaasin MOURABIT</span>
+          </mat-toolbar-row>
+        </mat-toolbar>
+      </footer> -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

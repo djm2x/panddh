@@ -1,0 +1,58 @@
+// section {
+//   display: flex !important;
+//   justify-content: space-between !important;
+//   align-items: center !important;
+// }
+
+::ng-deep h3 {
+  margin: 0 !important;
+}
+
+.host {
+  margin: 1em !important;
+}
+
+::ng-deep mat-checkbox label {
+  margin-top: 7px;
+}
+
+tr:hover {
+  cursor: pointer;
+}
+
+// .input-in-table ::ng-deep .mat-form-field-wrapper{
+//   padding-bottom: 0 !important;
+// }
+
+// .mat-header-cell:first-child,
+// .mat-cell:first-child {
+//   width: 5px !important;
+//   // padding-right: 1px !important;
+// }
+
+.actions {
+  display: flex;
+  // align-content: flex-end;
+  flex-direction: row-reverse;
+  margin: 0 15px 15px 0;
+}
+
+.inputs {
+  display: flex !important;
+  // flex-wrap: wrap;
+  flex-direction: column;
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.host {
+  margin: 1em !important;
+}
+
+
+// .mat-header-cell:first-child,
+// .mat-cell:first-child {
+//   width: 5px !important;
+//   // padding-right: 1px !important;
+// }

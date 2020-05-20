@@ -1,0 +1,37 @@
+.expension {
+  margin: 20px 0;
+}
+
+.rightC {
+  // margin: 0 20px 20px;
+  display: flex;
+  // flex-direction: ;
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-panel-title {
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0 0 0 10px;
+  }
+
+  mat-icon {
+    margin-top: 5px;
+  }
+}
+
+.inputs2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
+  grid-column-gap: 6px;
+  grid-row-gap: 6px;
+  // justify-content: space-around;
+  // flex-wrap: wrap;
+  margin: 15px;
+  align-items: center;
+  // mat-form-field {
+  //   width: 100%;
+  // }
+}
