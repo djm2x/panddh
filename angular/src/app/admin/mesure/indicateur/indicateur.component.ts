@@ -40,7 +40,7 @@ export class IndicateurComponent implements OnInit {
     { columnDef: 'select', headName: '' },
     { columnDef: 'nom', headName: 'المؤشر' },
     { columnDef: 'source', headName: 'مصدر تحقق' },
-    { columnDef: 'option', headName: 'OPTION' },
+    // { columnDef: 'option', headName: 'OPTION' },
   ];
 
   displayedColumns = this.columnDefs.map(e => e.columnDef);

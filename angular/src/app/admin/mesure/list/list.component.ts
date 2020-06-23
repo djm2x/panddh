@@ -232,7 +232,7 @@ export class ListComponent implements OnInit {
     const dialogRef = this.dialog.open(DetailsComponent, {
       width: '7100px',
       disableClose: true,
-      data: { model: o, title: 'Mesure' },
+      data: { model: o, title: this.title },
       direction: 'rtl',
     });
 

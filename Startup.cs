@@ -136,6 +136,7 @@ namespace Admin
                     await next();
                 }
             });
+            
             app.UseRouting();
 
             app.UseCors("CorsPolicy");
