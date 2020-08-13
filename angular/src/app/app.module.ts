@@ -14,7 +14,7 @@ import { MessageComponent } from './shared/snakebar.service';
 import { LoaderInterceptor } from './loader/loader-interceptor';
 import { DeleteComponent } from './admin/components/delete/delete.component';
 import { SheetbottomComponent } from './admin/components/sheetbottom/sheetbottom.component';
-import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogRef, MAT_DIALOG_DATA, MatToolbarModule, MatProgressSpinnerModule, MatDividerModule, MatButtonModule, MatSnackBarModule, MatListModule, MatDialogModule } from '@angular/material';
 
 
 
@@ -30,14 +30,21 @@ import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogRef, MAT_DIALOG_DATA } from '@angu
     SheetbottomComponent,
   ],
   imports: [
-    ReactiveFormsModule,
+    // ReactiveFormsModule,
+    // FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatModule,
-    FormsModule,
     BrowserAnimationsModule,
     LoaderModule,
+
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatListModule,
+    MatDialogModule,
 
     // MatSnackBarModule,
     // MatProgressSpinnerModule,
