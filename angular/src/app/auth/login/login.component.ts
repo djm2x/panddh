@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.createForm();
 
     this.uow.users.getForTest().subscribe(r => {
+      console.log(r);
+      this.dataSource = [];
       this.dataSource = r as User[];
     });
 

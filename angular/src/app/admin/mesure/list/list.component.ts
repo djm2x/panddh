@@ -202,6 +202,7 @@ export class ListComponent implements OnInit {
     } else if (name === 'cycle') {
       this.uow.mesures.getByForeignKey(id).subscribe(r => {
         this.mesures = r as any[];
+        this.users = [];
       });
     } else if (name === 'mesure') {
       this.uow.users.getByForeignKey(id).subscribe(r => {

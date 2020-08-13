@@ -38,6 +38,7 @@ namespace Controllers
                     value = e.Value,
                     idCycle = e.Mesure.IdCycle,
                     idMesure = e.IdMesure,
+                    // Responsable = e.Mesure.Responsable.Nom,
                     idIndicateur = e.IdIndicateur
                 })
                 .ToListAsync()

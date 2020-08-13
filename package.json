@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "ef-reverse": "dotnet ef dbcontext scaffold \"Data Source=DESKTOP-DSCSU8R\\DB_SERVER;database=car-debate;user id=sa; password=123\" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models",
-    "f": "cd angular && ng serve --host 192.168.1.103 --port 4203",
+    "f": "cd angular && ng serve --host 192.168.1.6 --port 4203",
     "m": "dotnet ef migrations add first && dotnet ef database drop -f && dotnet ef database update && dotnet watch run",
     "b": "dotnet watch run",
     "f-p": "cd angular && ng build --prod",

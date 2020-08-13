@@ -103,6 +103,10 @@
           <mat-list-item *ngIf="session.checkPermission('nature')" [routerLink]="['/admin/nature']" routerLinkActive="router-link-active">
             <mat-icon>aspect_ratio</mat-icon>&nbsp;<span>نوع التدبير</span>
           </mat-list-item>
+
+          <mat-list-item *ngIf="session.checkPermission('nature')" [routerLink]="['/admin/cycle']" routerLinkActive="router-link-active">
+            <mat-icon>check_circle_outline</mat-icon>&nbsp;<span>المراحل</span>
+          </mat-list-item>
           <!-- <mat-list-item *ngIf="session.checkPermission('mesure')" [routerLink]="['/admin/objectif']" routerLinkActive="router-link-active">
             <mat-icon>done_all</mat-icon>&nbsp;<span>الأهداف</span>
           </mat-list-item> -->

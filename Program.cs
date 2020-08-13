@@ -21,7 +21,7 @@ namespace Admin
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
-                    .UseUrls("http://192.168.1.103:5002/")
+                    // .UseUrls("http://192.168.1.6:5002/")
                     .UseStartup<Startup>();
                 });
     }

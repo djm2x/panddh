@@ -21,7 +21,7 @@ export class CycleComponent implements OnInit {
 
   dataSource = [];
   columnDefs = [
-    { columnDef: 'label', headName: 'NOM' },
+    { columnDef: 'label', headName: 'اسم' },
     { columnDef: 'option', headName: 'OPTION' },
   ];
 
@@ -70,7 +70,7 @@ export class CycleComponent implements OnInit {
   }
 
   add() {
-    this.openDialog(new Cycle(), 'Ajouter cycle').subscribe(result => {
+    this.openDialog(new Cycle(), 'إضافة مرحلة').subscribe(result => {
       if (result) {
         this.uow.cycles.post(result).subscribe(
           r => {
@@ -82,7 +82,7 @@ export class CycleComponent implements OnInit {
   }
 
   edit(o: Cycle) {
-    this.openDialog(o, 'Modifier cycle').subscribe((result: Cycle) => {
+    this.openDialog(o, 'تعديل مرحلة').subscribe((result: Cycle) => {
       if (result) {
         this.uow.cycles.put(result.id, result).subscribe(
           r => {
