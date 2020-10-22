@@ -1,0 +1,125 @@
+<div class="host">
+  <app-title title="التدبير"></app-title>
+  <mat-tab-group class="example-stretched-tabs mat-elevation-z4" #matgroup style="margin-top: 15px;">
+    <mat-tab label="التدبير" [disabled]='false'>
+      <ng-template matTabContent>
+
+
+        <form [formGroup]="myForm">
+          <mat-card style="margin: 15px !important;">
+
+            <div class="inputs">
+              <mat-form-field appearance="fill" style="width: 100%">
+                <mat-label>المرحلة</mat-label>
+                <mat-select formControlName="idCycle">
+                  <mat-option *ngFor="let e of cycles | async" [value]="e.id">{{ e.label }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+            </div>
+
+            <div class="inputs">
+              <mat-form-field appearance="fill">
+                <mat-label>الرمز</mat-label>
+                <input matInput formControlName="code" required>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>الإسم</mat-label>
+                <input matInput formControlName="nom" required>
+              </mat-form-field>
+            </div>
+
+
+            <div class="inputs">
+              <mat-form-field appearance="fill" style="width: 100%">
+                <mat-label>المسؤول</mat-label>
+                <mat-select formControlName="idResponsable">
+                  <mat-option *ngFor="let e of users | async" [value]="e.id">{{ e.nom }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>النوع </mat-label>
+                <mat-select formControlName="idNature">
+                  <mat-option value="0">...</mat-option>
+                  <mat-option *ngFor="let e of natures | async" [value]="e.id">{{ e.label }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="inputs">
+              <mat-form-field appearance="fill" style="width: 100%">
+                <mat-label>المحور</mat-label>
+                <mat-select formControlName="idAxe"  (selectionChange)="selectChange($event.value)">
+                  <mat-option *ngFor="let e of axes | async" [value]="e.id">{{ e.label }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>المحور الفرعي</mat-label>
+                <mat-select formControlName="idSousAxe">
+                  <mat-option value="0">...</mat-option>
+                  <mat-option *ngFor="let e of sousAxes" [value]="e.id">{{ e.label }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="inputs2">
+              <mat-form-field appearance="fill">
+                <mat-label> الهدف العام</mat-label>
+                <input matInput formControlName="objectifGlobal" required>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>الأهداف الخاصة</mat-label>
+                <textarea matInput rows="4" formControlName="objectifSpeciaux" required></textarea>
+                <!-- <input matInput formControlName="adresse" required> -->
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>النتائج المرتقبة</mat-label>
+                <textarea matInput rows="4" formControlName="resultatsAttendu" required></textarea>
+                <!-- <input matInput formControlName="adresse" required> -->
+              </mat-form-field>
+            </div>
+
+          </mat-card>
+        </form>
+
+        <div class="actions">
+          <button mat-button [routerLink]="['/admin/mesure/list']" type="button">رجوع</button>&nbsp;&nbsp;
+          <!-- <button mat-button (click)="reset()" type="button">إلغاء</button>&nbsp;&nbsp; -->
+          <button mat-raised-button color="primary" (click)="submit(myForm.value)" [disabled]="myForm.invalid">تسجيل</button>
+        </div>
+      </ng-template>
+    </mat-tab>
+    <!--  -->
+    <mat-tab label="الشركاء" [disabled]='o.id === 0'>
+      <ng-template matTabContent>
+        <div style="margin: 15px;">
+          <app-partenaire [mesure]="o"></app-partenaire>
+        </div>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab label="الأنشطة المبرمجة" [disabled]='o.id === 0'>
+      <ng-template matTabContent>
+        <div style="margin: 15px;">
+            <app-activite [mesure]="o"></app-activite>
+        </div>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab label="المؤشرات" [disabled]='o.id === 0'>
+      <ng-template matTabContent>
+        <div style="margin: 15px;">
+          <app-indicateur [mesure]="o"></app-indicateur>
+        </div>
+      </ng-template>
+    </mat-tab>
+
+
+  </mat-tab-group>
+</div>

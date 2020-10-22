@@ -1,0 +1,120 @@
+<!-- Content Header (Page header) -->
+
+<div class="host">
+  <div >
+    <app-title title="{{o.nom}} {{o.prenom}}"></app-title>
+    <!-- right column -->
+    <form (ngSubmit)="submit(myForm)" [formGroup]="myForm">
+      <div class="row">
+        <div class="col-md-6">
+          <mat-card>
+            <div style="margin-bottom: 20px;">
+              <h5>معلومات شخصية</h5>
+            </div>
+
+            <mat-form-field appearance="fill">
+              <mat-label>اسم</mat-label>
+              <input matInput formControlName="nom" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>الأسم الأول</mat-label>
+              <input matInput formControlName="prenom" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>البريد الإلكتروني</mat-label>
+              <input matInput formControlName="email" required>
+            </mat-form-field>
+
+            <!-- <mat-form-field appearance="fill">
+              <mat-label>هيئة</mat-label>
+              <mat-select formControlName="idOrganisme">
+                <mat-option *ngFor="let org of organismes | async" [value]="org.id">{{ org.label }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>وظيفة</mat-label>
+              <mat-select formControlName="idProfil">
+                <mat-option *ngFor="let profil of profils | async" [value]="profil.id">{{ profil.label }}</mat-option>
+              </mat-select>
+            </mat-form-field> -->
+
+            <mat-form-field appearance="fill">
+              <mat-label>هيئة</mat-label>
+              <input matInput [value]="ogranisme" readonly>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>وظيفة</mat-label>
+              <input matInput [value]="profil" readonly>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>عنوان الاقامة</mat-label>
+              <input matInput formControlName="adresse" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>الهاتف المحمول</mat-label>
+              <input matInput formControlName="tel" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>الهاتف</mat-label>
+              <input matInput formControlName="fix" required>
+            </mat-form-field>
+          </mat-card>
+        </div>
+
+        <div class="col-md-6">
+          <mat-card>
+            <div style="margin-bottom: 20px;">
+              <h5>معلومات التسجيل</h5>
+            </div>
+
+            <mat-form-field appearance="fill">
+              <mat-label>كنية</mat-label>
+              <input matInput formControlName="username" required>
+            </mat-form-field>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <mat-form-field appearance="fill">
+              <mat-label>كلمة السر</mat-label>
+              <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" required>
+              <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>كرر كلمة المرور</mat-label>
+              <input matInput formControlName="password2" [type]="hide2 ? 'password' : 'text'" required>
+              <button type="button" mat-icon-button matSuffix (click)="hide2 = !hide2"
+                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+
+            <mat-checkbox formControlName="actif"> الحالة</mat-checkbox>
+          </mat-card>
+          <div class="actions">
+            <button style="margin-top: 20px;"
+            [disabled]="this.myForm.invalid || this.myForm.get('password').value !== this.myForm.get('password2').value" mat-raised-button
+            color="primary" type="submit">
+            حفظ
+          </button>
+          &nbsp;&nbsp;&nbsp;
+          <button style="margin-top: 20px; margin-right: 20px;" [routerLink]="['/admin/user']" mat-raised-button type="button">
+            رجوع
+        </button>
+        </div>
+
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

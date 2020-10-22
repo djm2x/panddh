@@ -1,0 +1,60 @@
+<div class="dialog">
+  <h1 mat-dialog-title>
+    <mat-toolbar role="toolbar" class="task-header">
+      <span>{{o.nom}}</span>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+  </h1>
+  <div class="content">
+    <div mat-dialog-content>
+      <!-- <ul>
+        <li>Date de signature: {{o.dateSignature | date : "dd/MM/yyyy"}}</li>
+        <li>Date de ratification: {{o.dateRatification | date : "dd/MM/yyyy"}}</li>
+      </ul> -->
+
+
+      <section *ngIf="dataSource.length !== 0">
+        <h5>Rapports</h5>
+        <div class="example-table-container">
+        <table mat-table #table [dataSource]="dataSource" multiTemplateDataRows aria-label="Elements">
+          <ng-container [matColumnDef]="columnDefs[0].columnDef">
+            <th cdk-header-cell *matHeaderCellDef>{{columnDefs[0].headName}}</th>
+            <td cdk-cell *matCellDef="let row">{{row[columnDefs[0].columnDef]}}</td>
+          </ng-container>
+
+          <ng-container [matColumnDef]="columnDefs[1].columnDef">
+            <th cdk-header-cell *matHeaderCellDef>{{columnDefs[1].headName}}</th>
+            <td cdk-cell *matCellDef="let row">{{row[columnDefs[1].columnDef] | date: "dd/MM/yyyy"}}</td>
+          </ng-container>
+
+          <ng-container [matColumnDef]="columnDefs[2].columnDef">
+            <th cdk-header-cell *matHeaderCellDef>{{columnDefs[2].headName}}</th>
+            <td cdk-cell *matCellDef="let row">{{row[columnDefs[2].columnDef] | date: "dd/MM/yyyy"}}</td>
+          </ng-container>
+
+          <ng-container [matColumnDef]="columnDefs[3].columnDef">
+            <th cdk-header-cell *matHeaderCellDef>{{columnDefs[3].headName}}</th>
+            <td cdk-cell *matCellDef="let row">{{row[columnDefs[3].columnDef] | date: "dd/MM/yyyy"}}</td>
+          </ng-container>
+
+          <ng-container [matColumnDef]="columnDefs[4].columnDef">
+            <th cdk-header-cell *matHeaderCellDef>{{columnDefs[4].headName}}</th>
+            <td cdk-cell *matCellDef="let row">{{row[columnDefs[4].columnDef]}}</td>
+          </ng-container>
+
+          <tr mat-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      </section>
+
+  </div>
+    <!--
+    {{myForm.status | json}}
+    {{myForm.value | json}} -->
+
+    <div class="actions" mat-dialog-actions>
+      <button mat-button (click)="onNoClick()" type="button">Retour</button>
+    </div>
+  </div>
+</div>

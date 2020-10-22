@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+// @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic");
+
+@import "../node_modules/bootstrap-css-only/css/bootstrap.min.css";
+// @import "../node_modules/bootstrap-css-only/css/bootstrap-grid.min.css";
+@import "./mat_table.scss";
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./assets/iconfont/material-icons.css";
+
+
+body{
+    font-family: 'Source Sans Pro', sans-serif !important;
+  }
+html, body { height: 100%; background-color: rgb(235, 235, 235);}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-dialog-container {
+  padding: 0 !important;
+}
+
+.warn-snackbar {
+
+  background-color: rgb(190, 136, 20) !important;
+}
+
+.green-snackbar{
+  // color: rgb(65, 158, 86);
+  background-color: rgb(65, 158, 86) !important;
+  // padding: 0 5vw !important;
+}
+
+.alert-snackbar {
+  background-color: rgb(184, 63, 63) !important;
+}
+
+mat-icon {
+  font-size:  25px !important;
+}
+
+.mat-header-cell:last-child,
+.mat-cell:last-child {
+  width: 150px !important;
+  padding-right: 15px !important;
+}
+
+// .mat-header-cell:nth-child(2),.mat-cell:nth-child(2){
+//   flex:85%;
+// }
+
+
+mat-icon {
+  // margin-top: 4px !important;
+  margin-bottom: 5px !important;
+}

@@ -1,0 +1,79 @@
+<div class="host">
+
+  <!-- <div class="myrow">
+  <mat-card>
+
+    hhh
+    </mat-card>
+    <mat-card>
+
+    </mat-card>
+    <mat-card>
+
+    </mat-card>
+    <mat-card>
+
+    </mat-card>
+  </div> -->
+
+  <div class="myrow">
+    <button mat-raised-button (click)="pandh()">
+      <div>
+        <h5>Portail PANDH</h5>
+        <!-- <h5>عدد التدابير</h5> -->
+      </div>
+    </button>
+
+    <button mat-raised-button color="accent" style="background-color: gray; color: white;">
+      <div>
+        <h5>Portail DIDH</h5>
+        <!-- <h5>عدد الأنشطة لسنة 2019</h5> -->
+      </div>
+    </button>
+  <!-- </div>
+
+  <div class="myrow"> -->
+    <button mat-raised-button color="primary">
+      <div>
+        <h1>{{(countMesure | async) ? (countMesure | async) : '...'}}</h1>
+        <h5>عدد التدابير</h5>
+      </div>
+    </button>
+
+    <button mat-raised-button color="accent" style="background-color: gray; color: white;">
+      <div>
+        <h1>{{(countMesure | async) ? (countMesure | async) : '...'}}</h1>
+        <h5>عدد الأنشطة</h5>
+        <!-- <h5>عدد الأنشطة لسنة 2019</h5> -->
+      </div>
+    </button>
+
+    <button mat-raised-button color="warn" style="background-color: gray; color: white;">
+      <div>
+        <h1>000</h1>
+        <h5>... عدد</h5>
+      </div>
+    </button>
+
+    <!-- <button mat-raised-button>
+      <div>
+        <h1>اختبار</h1>
+        <h5>انقر هنا</h5>
+      </div>
+    </button> -->
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+
+      <app-bar-one></app-bar-one>
+    </div>
+    <div class="col-md-9">
+      <app-calendar></app-calendar>
+
+    </div>
+
+    
+  </div>
+
+</div>

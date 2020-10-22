@@ -1,0 +1,51 @@
+<div class="example-container mat-elevation-z8" style="margin-bottom: 20px;">
+  <div class="example-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="example-table-container">
+    <table mat-table #table [dataSource]="dataSource" multiTemplateDataRows aria-label="Elements" matSort>
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef style="width: 250px;">
+          <!-- <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()"
+                        [aria-label]="checkboxLabel()">
+          </mat-checkbox> -->
+
+        </th>
+        <!--  -->
+        <td mat-cell *matCellDef="let row">
+          <!-- (click)="check(row)" -->
+          <mat-checkbox (change)="$event ? check(row) : null" (click)="$event.stopPropagation()"
+            [checked]="isSelected(row)" [aria-label]="checkboxLabel(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <ng-container [matColumnDef]="columnDefs[1].columnDef">
+        <th mat-header-cell *matHeaderCellDef>
+          {{columnDefs[1].headName}}
+
+        </th>
+        <td mat-cell *matCellDef="let row">{{row[columnDefs[1].columnDef]}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <!-- (click)="selection.toggle(row)" -->
+
+    </table>
+  </div>
+
+  <mat-paginator #paginator [length]="resultsLength" pageIndex="0" pageSize="10"
+    [pageSizeOptions]="[2, 10, 25, 50, 100, 250]" showFirstLastButtons>
+  </mat-paginator>
+</div>
+
+<div class="actions">
+  <button mat-button [routerLink]="['/admin/synthese/list']" type="button">رجوع</button>&nbsp;&nbsp;
+  <!-- <button mat-button (click)="reset()" type="button">إلغاء</button>&nbsp;&nbsp; -->
+  <button mat-raised-button cdkFocusInitial color="primary" (click)="submit()"
+    [disabled]="selectedList.length === 0">تسجيل</button>
+</div>

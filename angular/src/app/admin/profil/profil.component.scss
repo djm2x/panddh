@@ -1,0 +1,99 @@
+.host {
+  margin: 1em;
+}
+
+/* Structure */
+.example-container {
+  position: relative;
+  min-height: 200px;
+}
+
+::ng-deep .mat-header-row {
+  background-color: #ebebeb !important;
+}
+
+tr {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+tr:hover {
+  transition: background-color .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-color: rgb(247, 247, 247);
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+::ng-deep h3 {
+  margin: 0;
+}
+
+
+mat-card {
+  margin: .8em 0;
+  .inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column-gap: 6px;
+    grid-row-gap:6px;
+    // justify-content: space-around;
+    // flex-wrap: wrap;
+    align-items: center;
+  }
+
+
+  button {
+    margin-left: auto;
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+
+
+.example-table-container {
+  position: relative;
+  max-height: 400px;
+  overflow: auto;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.example-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-rate-limit-reached {
+  color: #980000;
+  max-width: 360px;
+  text-align: center;
+}
+
+/* Column Widths */
+.mat-column-number,
+.mat-column-state {
+  max-width: 64px;
+}
+
+.mat-column-created {
+  max-width: 124px;
+}
+

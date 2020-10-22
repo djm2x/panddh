@@ -1,0 +1,56 @@
+<div class="dialog">
+  <h1 mat-dialog-title>
+    <mat-toolbar role="toolbar" class="task-header">
+      <span>{{title}}</span>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+  </h1>
+  <div class="content">
+    <div mat-dialog-content>
+      <form [formGroup]="myForm">
+        <div class="inputs2">
+          <mat-form-field appearance="fill">
+            <mat-label>المرحلة</mat-label>
+            <mat-select [formControl]="cycleFC">
+              <mat-option *ngFor="let e of cycles | async" [value]="e.id">{{ e.label }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" style="margin-bottom: 5px;">
+            <mat-label> (test)التدبير</mat-label>
+            <input matInput [formControl]="myAuto" [matAutocomplete]="auto" placeholder="إكمال تلقائي">
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+              <mat-option *ngFor="let e of filteredOptions | async" [value]="e">{{ e.nom }} </mat-option>
+            </mat-autocomplete>
+          </mat-form-field> 
+
+          <mat-form-field appearance="fill">
+            <mat-label>المؤشرات</mat-label>
+            <mat-select formControlName="idIndicateur">
+              <mat-option *ngFor="let e of indicateurs" [value]="e.id">{{ e.nom }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="fill" style="width: 100%;">
+          <mat-label>تاريخ</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>قيمة / نسبة</mat-label>
+          <input matInput formControlName="value" required>
+        </mat-form-field>
+
+      </form>
+    </div>
+
+    <div class="actions" mat-dialog-actions>
+      <button mat-raised-button (click)="onNoClick()" type="button">إلغاء</button>&nbsp;&nbsp;
+      <button mat-raised-button cdkFocusInitial color="primary" (click)="onOkClick(myForm.value)"
+        [disabled]="myForm.invalid">تسجيل</button>
+    </div>
+  </div>
+  <!-- </div> -->
